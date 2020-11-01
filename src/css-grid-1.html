@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS grid</title>
+
+    <script>
+        function showSpinner() {
+            let spinner = document.getElementById("spinner-area");
+            spinner.style.visibility = 'visible';
+            window.setTimeout(hideSpinner, 3000);
+        }
+        function hideSpinner() {
+            let spinner = document.getElementById("spinner-area");
+            spinner.style.visibility = 'hidden';
+        }
+    </script>
+
+    <style>
+        html {
+            font-family: sans-serif;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #container {
+            display: grid;
+            background-color: gainsboro;
+            width: 100vw;
+            height: 100vh;
+
+            grid-template-areas:
+                "header header"
+                "menu content"
+                "menu footer";
+
+            grid-template-columns: 300px 1fr;
+            grid-template-rows: 100px 1fr 60px;
+        }
+        #header {
+            grid-area: header;
+            background-color: blue;
+            text-align: center;
+            color: white;
+        }
+        #menu {
+            grid-area: menu;
+            background-color: yellow;
+        }
+        #content {
+            grid-area: content;
+            background-color: white;
+            overflow-y: scroll; /* Show horizontal scrollbar, prevent footer from being "below" the viewport */
+        }
+        #spinner-area {
+            grid-area: content;
+            background-color: rgba(0, 0,0, 0.5);
+            position: relative; /* Make sure spinner area covers content area */
+        }
+        #footer {
+            grid-area: footer;
+            background-color: purple;
+            color: white;
+        }
+        .spinner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            font-size: x-large;
+            color: white;
+        }
+        .content-area {
+            padding: 1em;
+        }
+        h1 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div id="header" class="content-area">
+            <h1>Header</h1>
+        </div>
+        <div id="menu" class="content-area">
+            <h1>Menu</h1>
+            <p>
+                <button onclick="showSpinner()">Click</button>
+            </p>
+        </div>
+        <div id="content" class="content-area">
+            <h1>Content</h1>
+            <p>
+                Gravida, cubilia a fringilla platea. Hendrerit sociosqu cras massa rutrum nisi suspendisse. Duis congue sodales ante nullam. Sociis lacus lobortis imperdiet faucibus facilisi augue dis arcu cubilia pellentesque. Iaculis, ultricies at sociis nulla sodales dui! Eleifend eget condimentum augue sociosqu inceptos himenaeos turpis litora vestibulum id ante ridiculus! Libero, neque volutpat proin est.
+            </p>
+            <p>
+                Vehicula vehicula varius purus vulputate nisl libero senectus eget enim. Dictumst dui lacus conubia curae; scelerisque sollicitudin pulvinar arcu vehicula sollicitudin. Nostra nascetur massa nascetur. Facilisis cursus facilisis scelerisque nascetur luctus cursus, pellentesque hendrerit vulputate aliquet ultrices urna. Penatibus gravida, integer per nostra. Fames semper metus pellentesque auctor sociosqu viverra himenaeos natoque cubilia. Luctus sed nunc nunc. Faucibus inceptos ridiculus iaculis interdum posuere parturient litora magnis velit metus lobortis.
+            </p>
+            <p>
+                Penatibus netus fermentum ligula bibendum massa neque magnis at penatibus erat pharetra! Volutpat aenean amet mus ridiculus mauris parturient rutrum proin. Eu consequat habitant mus ultrices senectus curae; magnis convallis congue quisque facilisi. Erat felis nec ante sapien magnis? Arcu himenaeos sapien cras netus euismod habitant orci commodo in elementum. Curae; habitant quis mattis ut. Habitant etiam dolor eleifend arcu hendrerit curae; fames egestas elementum. Consectetur sem pulvinar eros aliquet eros eget quisque sodales pretium diam accumsan consequat! Euismod quis nisl massa justo volutpat arcu sodales.
+            </p>
+            <p>
+                Accumsan phasellus odio commodo cubilia tempor nam. Ultrices, cras adipiscing egestas tortor fringilla lobortis mus ante vitae id? Posuere sociis elit eros adipiscing parturient quisque. Habitant fames posuere felis fringilla auctor auctor. Proin in pharetra senectus semper eleifend integer fringilla, tempor ultricies purus interdum aliquam. Feugiat hac etiam inceptos sodales vivamus bibendum, nisl phasellus ipsum ante morbi imperdiet. Conubia dictum fames proin mauris fermentum nam conubia nunc. Vitae enim cum leo dapibus. Taciti leo lacus morbi penatibus taciti ligula euismod mauris sociis vitae. Mollis parturient pulvinar nisl congue etiam nascetur curabitur curabitur cursus. In taciti aliquet consequat.
+            </p>
+            <p>
+                Dui dolor erat ligula tortor adipiscing mauris! Lobortis laoreet habitant, aptent posuere litora ullamcorper convallis libero cras ligula. Accumsan hendrerit class suscipit. Pretium cum non sagittis lorem. Aptent dictumst sit vestibulum. Congue sodales duis bibendum turpis pellentesque id hendrerit nunc auctor nam mauris fames! Hac aptent praesent congue. Pharetra, scelerisque euismod hendrerit.
+            </p>
+            <p>
+                Vehicula vehicula varius purus vulputate nisl libero senectus eget enim. Dictumst dui lacus conubia curae; scelerisque sollicitudin pulvinar arcu vehicula sollicitudin. Nostra nascetur massa nascetur. Facilisis cursus facilisis scelerisque nascetur luctus cursus, pellentesque hendrerit vulputate aliquet ultrices urna. Penatibus gravida, integer per nostra. Fames semper metus pellentesque auctor sociosqu viverra himenaeos natoque cubilia. Luctus sed nunc nunc. Faucibus inceptos ridiculus iaculis interdum posuere parturient litora magnis velit metus lobortis.
+            </p>
+        </div>
+        <div id="footer" class="content-area">
+            <h1>Footer</h1>
+        </div>
+
+        <div id="spinner-area" class="content-area" style="visibility: hidden">
+            <div class="spinner">
+                <p>Loading...</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
